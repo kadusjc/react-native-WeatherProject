@@ -1,4 +1,4 @@
-const {AppRegistry } = require('react-native')
-const WeatherProject = require('./WeatherProject')
+import {AppRegistry } from 'react-native'
+import WeatherProject from './WeatherProject'
 
 AppRegistry.registerComponent('WeatherProject', () => WeatherProject)

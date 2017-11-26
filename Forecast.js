@@ -1,9 +1,12 @@
-const React = require('react')
-const {StyleSheet, Text, View} = require('react-native')
+import React, { Component } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
-const Forecast = React.createClass({
-
-  render: function() {
+export default class Forecast extends Component<{}> {
+  render() {
     return (
       <View>
         <Text style={styles.bigText}>
@@ -18,7 +21,7 @@ const Forecast = React.createClass({
       </View>
     )
   }
-})
+}
 
 const styles = StyleSheet.create({
   bigText: {
@@ -35,5 +38,3 @@ const styles = StyleSheet.create({
     color: '#FFFFFF'
   }
 })
-
-module.exports = Forecast

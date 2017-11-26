@@ -1,12 +1,17 @@
-const React = require('react')
-const {StyleSheet, Text, View, TextInput, Image} = require('react-native')
+import React, { Component } from 'react';
+import Forecast from './Forecast'
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  View
+} from 'react-native';
 
-const Forecast = require('./Forecast')
-
-const WeatherProject = React.createClass({
-
-  getInitialState() {
-    return {
+export default class WeatherProject extends Component<{}> {
+  constructor(props) {
+    super(props)
+    this.state = {
       zip: '',
       forecast: {
         main: 'Clouds',
@@ -14,7 +19,7 @@ const WeatherProject = React.createClass({
         temp: 45.7
       }
     }
-  },
+  }
 
   _handleTextChange(event) {
     // log statements are viewable in Xcode,
@@ -23,7 +28,7 @@ const WeatherProject = React.createClass({
     this.setState({
       zip: event.nativeEvent.text
     })
-  },
+  }
 
   render() {
     return (
@@ -32,17 +37,17 @@ const WeatherProject = React.createClass({
           You input {this.state.zip}.
         </Text>
         <Forecast
-        main={this.state.forecast.main}
-        description={this.state.forecast.description}
-        temp={this.state.forecast.temp}/>
+          main={this.state.forecast.main}
+          description={this.state.forecast.description}
+          temp={this.state.forecast.temp}/>
         <TextInput
-        style={styles.input}
-        returnKeyType='go'
-        onSubmitEditing={this._handleTextChange}/>
+          style={styles.input}
+          returnKeyType='go'
+          onSubmitEditing={this._handleTextChange}/>
       </View>
     )
   }
-})
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -62,5 +67,3 @@ const styles = StyleSheet.create({
     height: 40
   }
 })
-
-module.exports = WeatherProject
