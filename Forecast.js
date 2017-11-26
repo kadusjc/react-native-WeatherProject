@@ -1,41 +1,24 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+const React = require('react')
+const {StyleSheet, Text, View} = require('react-native')
 
-import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+const Forecast = React.createClass({
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-export default class Forecast extends Component<{}> {
   render: function() {
     return (
       <View>
         <Text style={styles.bigText}>
           {this.props.main}
-        <\/Text>
+        </Text>
         <Text style={styles.mainText}>
           Current conditions: {this.props.description}
-        <\/Text>
+        </Text>
         <Text style={styles.bigText}>
           {this.props.temp}°F
-        <\/Text>
-      <\/View>
+        </Text>
+      </View>
     )
   }
-}
+})
 
 const styles = StyleSheet.create({
   bigText: {
@@ -52,3 +35,5 @@ const styles = StyleSheet.create({
     color: '#FFFFFF'
   }
 })
+
+module.exports = Forecast
