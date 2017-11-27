@@ -5,7 +5,7 @@
 	"scripts": {
 		"start": "react-native start",
 		"android": "react-native run-android",
-		"clean": "./android/gradlew clean",
+		"clean": "cd android && ./gradlew clean",
 		"ios": "react-native run-ios",
 		"test": "node node_modules/jest/bin/jest.js --watch"
 	},

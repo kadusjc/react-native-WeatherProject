@@ -1,24 +1,23 @@
 import React, { Component } from 'react'
 import {StyleSheet, Text, View} from 'react-native';
 
-// {this.props.main}
-//{this.props.description}
-// /{this.props.temp}
 class Forecast extends Component<{}> {
   constructor(props) {
     super(props)
   }
 
   render() {
+    console.log('Props', this.props)
     return (
       <View style={styles.container}>
         <Text style={styles.bigText}>
+          {this.props.main}
         </Text>
         <Text style={styles.mainText}>
-          Current conditions:
+          Current conditions: {this.props.description}
         </Text>
         <Text style={styles.bigText}>
-          °F
+          {this.props.temp} °F
         </Text>
       </View>
     )
@@ -31,16 +30,16 @@ const styles = StyleSheet.create({
   },
   bigText: {
     flex: 2,
-    fontSize: 20,
+    fontSize: 14,
     textAlign: 'center',
     margin: 10,
-    color: '#FFFFFF'
+    color: '#000000'
   },
   mainText: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 10,
     textAlign: 'center',
-    color: '#FFFFFF'
+    color: '#000000'
   }
 })
 
