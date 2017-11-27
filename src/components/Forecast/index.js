@@ -33,13 +33,13 @@ const styles = StyleSheet.create({
     fontSize: 25,
     textAlign: 'center',
     margin: 10,
-    color: '#000000'
+    color: '#FFFFFF'
   },
   mainText: {
     flex: 1,
     fontSize: 18,
     textAlign: 'center',
-    color: '#000000'
+    color: '#FFFFFF'
   }
 })
 
