@@ -26,7 +26,7 @@ export default class WeatherProject extends Component<{}> {
 
   _handleTextChange(event) {
     console.log(event.nativeEvent.text)
-    this.state.zip = event.nativeEvent.text
+    this.setState({zip: event.nativeEvent.text})
   }
 
   render() {
