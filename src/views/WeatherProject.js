@@ -27,7 +27,6 @@ export default class WeatherProject extends Component<{}> {
   _handleTextChange(event) {
     console.log(event.nativeEvent.text)
     this.state.zip = event.nativeEvent.text
-    console.log('text change', this.state)
   }
 
   render() {
@@ -35,8 +34,13 @@ export default class WeatherProject extends Component<{}> {
     return (
         <View style={styles.container}>
           <Text style={styles.welcome}>
-            You input {this.state.zip}.
+            You input {this.state.zip}
           </Text>
+
+          <Forecast
+            main={this.state.forecast.main}
+            temp={this.state.forecast.temp}
+            description={this.state.forecast.description}/>
 
           <TextInput
             style={styles.input}
@@ -44,10 +48,6 @@ export default class WeatherProject extends Component<{}> {
             onSubmitEditing={this._handleTextChange}>
           </TextInput>
 
-         <Forecast
-            main={this.state.forecast.main}
-            temp={this.state.forecast.temp}
-            description={this.state.forecast.description}/>
         </View>
     )
   }
@@ -61,12 +61,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 18,
     textAlign: 'center',
-    margin: 10,
+    margin: 2,
+    color: '#FF0011'
   },
   input: {
-    fontSize: 20,
+    fontSize: 18,
     borderWidth: 2,
     height: 40
   }

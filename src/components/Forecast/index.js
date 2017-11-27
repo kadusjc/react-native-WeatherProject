@@ -30,14 +30,14 @@ const styles = StyleSheet.create({
   },
   bigText: {
     flex: 2,
-    fontSize: 14,
+    fontSize: 25,
     textAlign: 'center',
     margin: 10,
     color: '#000000'
   },
   mainText: {
     flex: 1,
-    fontSize: 10,
+    fontSize: 18,
     textAlign: 'center',
     color: '#000000'
   }
