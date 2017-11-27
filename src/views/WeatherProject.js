@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {bindAll} from 'lodash'
 import Forecast from '../components/Forecast'
 
 import {
@@ -13,20 +14,20 @@ import {
 export default class WeatherProject extends Component<{}> {
   constructor(props) {
     super(props)
-    this._handleTextChange = this._handleTextChange.bind(this)
-    this.state = {
-      zip: '',
+    bindAll(this, '_handleTextChange')
+    this.state = {zip: '', forecast: {main: '', description: '', temp: ''}}
+  }
+
+  _handleTextChange(event) {
+    console.log(event.nativeEvent.text)
+    this.setState({
+      zip: event.nativeEvent.text,
       forecast: {
         main: 'Clouds',
         description: 'few clouds',
         temp: 45.7
       }
-    }
-  }
-
-  _handleTextChange(event) {
-    console.log(event.nativeEvent.text)
-    this.setState({zip: event.nativeEvent.text})
+    })
   }
 
   render() {
