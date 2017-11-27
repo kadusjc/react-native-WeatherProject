@@ -1,4 +1,4 @@
 import {AppRegistry } from 'react-native'
-import WeatherProject from './WeatherProject'
+import App from './src/views/WeatherProject'
 
-AppRegistry.registerComponent('WeatherProject', () => WeatherProject)
+AppRegistry.registerComponent('WeatherProject', () => App)

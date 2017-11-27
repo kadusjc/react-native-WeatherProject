@@ -1,22 +1,24 @@
-import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import React, { Component } from 'react'
+import {StyleSheet, Text, View} from 'react-native';
 
-export default class Forecast extends Component<{}> {
+// {this.props.main}
+//{this.props.description}
+// /{this.props.temp}
+class Forecast extends Component<{}> {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Text style={styles.bigText}>
-          {this.props.main}
         </Text>
         <Text style={styles.mainText}>
-          Current conditions: {this.props.description}
+          Current conditions:
         </Text>
         <Text style={styles.bigText}>
-          {this.props.temp}°F
+          °F
         </Text>
       </View>
     )
@@ -24,6 +26,9 @@ export default class Forecast extends Component<{}> {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   bigText: {
     flex: 2,
     fontSize: 20,
@@ -38,3 +43,5 @@ const styles = StyleSheet.create({
     color: '#FFFFFF'
   }
 })
+
+export default Forecast
