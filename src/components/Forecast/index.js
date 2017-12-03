@@ -9,15 +9,11 @@ class Forecast extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.bigText}>
-          {this.props.main}
-        </Text>
-        <Text style={styles.mainText}>
-          Current conditions: {this.props.description}
-        </Text>
-        <Text style={styles.bigText}>
-          {this.props.temp} °C
-        </Text>
+        <View style={styles.limit}>
+          <Text style={styles.bigText}>{this.props.main}</Text>
+          <Text style={styles.mainText}>Current conditions: {this.props.description}</Text>
+          <Text style={styles.bigText}>{this.props.temp} °C</Text>
+        </View>
       </View>
     )
   }
@@ -25,19 +21,16 @@ class Forecast extends Component<{}> {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    backgroundColor: 'rgba(0, 0, 0, 0.45)'
   },
   bigText: {
-    flex: 2,
     fontSize: 25,
     textAlign: 'center',
-    margin: 10,
     color: '#FFFFFF'
   },
   mainText: {
-    flex: 1,
-    fontSize: 18,
     textAlign: 'center',
+    fontSize: 18,
     color: '#FFFFFF'
   }
 })
