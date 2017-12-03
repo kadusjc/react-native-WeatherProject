@@ -7,7 +7,6 @@ class Forecast extends Component<{}> {
   }
 
   render() {
-    console.log('Props', this.props)
     return (
       <View style={styles.container}>
         <Text style={styles.bigText}>
@@ -17,7 +16,7 @@ class Forecast extends Component<{}> {
           Current conditions: {this.props.description}
         </Text>
         <Text style={styles.bigText}>
-          {this.props.temp} °F
+          {this.props.temp} °C
         </Text>
       </View>
     )

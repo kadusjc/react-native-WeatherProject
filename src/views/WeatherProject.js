@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import {bindAll} from 'lodash'
+import React, { Component } from 'react'
+import {bindAll, get} from 'lodash'
 import Forecast from '../components/Forecast'
+import WeatherService from '../services/WeatherService'
 import backgroundImage from '../images/kakaroto.jpg'
+
 
 import {
   Platform,
@@ -16,23 +18,31 @@ export default class WeatherProject extends Component<{}> {
   constructor(props) {
     super(props)
     bindAll(this, '_handleTextChange')
-    this.state = {zip: '', forecast: {main: '', description: '', temp: ''}}
+    this.weatherService = new WeatherService()
+    this.state = {cityCountry: '', forecast: {main: '', description: '', temp: ''}}
   }
 
-  _handleTextChange(event) {
-    console.log(event.nativeEvent.text)
+  async _handleTextChange(event) {
+    let userTyped = event.nativeEvent.text
+    let resJSON = await this.weatherService.invokeOpenWeather(userTyped)
+    let resCode = get(resJSON, 'cod')
+
+    if ( resCode !== 200) {
+      this.setState({cityCountry: resJSON.message})
+      return
+    }
+
     this.setState({
-      zip: event.nativeEvent.text,
+      cityCountry: userTyped,
       forecast: {
-        main: 'Clouds',
-        description: 'few clouds',
-        temp: 45.7
+        main: get(resJSON, 'weather[0].main'),
+        description: get(resJSON, 'weather[0].description'),
+        temp: get(resJSON, 'main.temp')
       }
     })
   }
 
   render() {
-    console.log('Entrou', this.state)
     return (
       <ImageBackground
         source={backgroundImage}
@@ -41,7 +51,11 @@ export default class WeatherProject extends Component<{}> {
 
         <View style={styles.container}>
           <Text style={styles.welcome}>
-            You input {this.state.zip}
+            Type City name, Country
+          </Text>
+
+          <Text style={styles.welcome}>
+            You input {this.state.cityCountry}
           </Text>
 
           <Forecast
