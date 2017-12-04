@@ -44,15 +44,15 @@ export default class WeatherProject extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{height: '4%', backgroundColor: 'black', justifyContent: 'center'}}>
-          <Text style={{fontWeight: 'bold', fontSize: 17, color: '#FFFFFF', textAlign: 'center'}}>
+        <View style={styles.blackSquare}>
+          <Text style={styles.logoFont}>
             kClima
           </Text>
         </View>
-        <View style={{height:'90%', backgroundColor: 'steelblue', justifyContent: 'center'}}>
-          <Text style={{fontWeight: 'bold', fontSize: 15, color: '#FFFFFF', textAlign: 'center'}}>
+        <View style={styles.mainBackground}>
+          <Text style={styles.mainText}>
             {"\n"}
-            Type a world City name
+            Digite o nome de uma cidade do Mundo
           </Text>
 
           <Text>{"\n"}</Text>
@@ -62,7 +62,10 @@ export default class WeatherProject extends Component<{}> {
             returnKeyType='go'
             onSubmitEditing={this._handleTextChange}>
           </TextInput>
-          <Image source={require('../images/cloud.png')}/>
+
+           <Text>{"\n"}</Text>
+
+          <Image source={require('../images/cloud.png')} style={styles.imageSize}/>
 
           {
             this.state.isShow &&
@@ -76,8 +79,8 @@ export default class WeatherProject extends Component<{}> {
           }
         </View>
 
-        <View style={{ height:'6%', backgroundColor: 'black'}}>
-          <Text style={{fontWeight: 'bold', fontSize: 12, justifyContent: 'center', textAlign: 'center', color: '#FFFFFF', justifyContent: 'center', textAlign: 'center'}}>
+        <View style={styles.poweredBy}>
+          <Text style={styles.poweredByFont}>
             powered by @OpenWeather
           </Text>
         </View>
@@ -87,6 +90,45 @@ export default class WeatherProject extends Component<{}> {
 }
 
 const styles  = StyleSheet.create({
+  blackSquare: {
+    height: '4%',
+    backgroundColor: 'black',
+    justifyContent: 'center'
+  },
+  logoFont: {
+    fontWeight: 'bold',
+    fontSize: 17,
+    color: '#FFFFFF',
+    textAlign: 'center'
+  },
+  imageSize: {
+    width: 400,
+    height: 205
+  },
+  poweredBy: {
+    height:'6%',
+    backgroundColor: 'black'
+  },
+  poweredByFont: {
+    fontWeight: 'bold',
+    fontSize: 12,
+    justifyContent: 'center',
+    textAlign: 'center',
+    color: '#FFFFFF',
+    justifyContent: 'center',
+    textAlign: 'center'
+  },
+  mainText: {
+    fontWeight: 'bold',
+    fontSize: 15,
+    color: '#FFFFFF',
+    textAlign: 'center'
+  },
+  mainBackground: {
+    height:'90%',
+    backgroundColor: 'steelblue',
+    justifyContent: 'center'
+  },
   container: {
     flex: 1
   },
@@ -104,7 +146,7 @@ const styles  = StyleSheet.create({
     fontSize: 18,
     borderWidth: 2,
     height: 40,
-    color: '#FFFFFF'
+    color: '#000000'
   },
   background: {
     flex: 1,
